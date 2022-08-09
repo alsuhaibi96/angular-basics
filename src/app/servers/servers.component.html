@@ -1,1 +1,37 @@
-<app-server></app-server>
+<div class="container-fluid p-5">
+    <div class="row column-list col-10">
+        <p>server component {{ serverStatus }}</p>
+        <label class="text-bg-warning w-50" [innerText]="content">
+            Wait two seonds to be able to add a new server
+        </label>
+        <input type="text" (input)="onUpdateServer($event)"> 
+
+        <input type="text" [(ngModel)]="serverName">
+    </div>
+    <button class="btn btn-primary col-2 mt-3" [disabled]="!serverStatus" (click)="onCreationStatus()">
+        Add Server
+    </button>
+    <div>
+        <div class="column-list">
+            <span class="mt-2">{{ creationStatus}}</span> 
+           
+
+        </div>
+    </div>
+
+
+</div>
+
+<!-- 
+<div class="container-fluid mt-5 p-5">
+
+    <input type="text" [(ngModel)]="userName">
+    <p>{{ userName }}</p>
+
+    <button class="btn btn-primary" [disabled]="userName ===''" (click)="userName=''">Reset a user</button>
+
+</div> -->
+
+
+<app-server *ngFor="let server of servers"></app-server>
+<app-task-two></app-task-two>
